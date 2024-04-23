@@ -34,6 +34,8 @@ Function Equation(a_matrix As Variant, b_matrix As Variant,  a_row As Integer) A
   Equation = return_matrix
 End Function
 
+  ' エクセルのシートから行列を取得する関数
+  ' 行の始まり、行の終わり、列の始まり、列の終わりを引数に取る
 Function GetMatrix(row_start As Integer, row_end As Integer, column_start As Integer, column_end As Integer) As Variant
   Dim returnArray() As Variant
   ReDim returnArray(1 To row_end - row_start + 1, 1 To column_end - column_start + 1)
