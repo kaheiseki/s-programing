@@ -1,5 +1,3 @@
-
-
 Sub Assignment1()
   ' 変数宣言
   Dim aMatrix As Variant
@@ -20,17 +18,25 @@ Sub Assignment1()
 
   ' wの総和を求める
   sum = result(1, 1) + result(2, 1) + result(3, 1) + result(4, 1)
+
+  ' wの総和で割ることでxを求める
+  For i = 1 To 4 
+    result(i, 1) = result(i, 1) / sum
+  Next i
   ' 結果をシートに出力
   For i = 1 To 5
-    ' 各wから総和を割り、ウェイトを出力する
-    Cells(i, 8).Value = result(i, 1)  / sum
+    Cells(i, 8).Value = result(i, 1)
   Next i
 
   ' リターンの出力
-  exp_return = (result(1,1) * 0.05 / sum) + (result(2,1) * 0.06 / sum) + (result(3,1) * 0.03 / sum) + (result(4,1) * 0.04 / sum)
+  exp_return = (result(1, 1) * 0.05) + (result(2, 1) * 0.06) + (result(3, 1) * 0.03) + (result(4, 1) * 0.04)
   Cells(1, 10).Value = exp_return 
 
   ' リスクの出力
-  risk = (result(1,1)/sum) * (result(1,1)/sum) * 0.04 + (result(2,1)/sum) * (result(2,1)/sum) * 0.09 + (result(3,1)/sum) * (result(3,1)/sum) * 0.01 + (result(4,1)/sum) * (result(4,1)/sum) * 0.04 + (result(1,1)/sum) * (result(2,1)/sum) * 0.072 + (result(1,1)/sum) * (result(3,1)/sum) * 0.012 + (result(1,1)/sum) * (result(4,1)/sum) * 0.032 + (result(2,1)/sum) * (result(3,1)/sum) * 0.03 + (result(2,1)/sum) * (result(4,1)/sum) * 0.024 + (result(3,1)/sum) * (result(4,1)/sum) * 0.02
+  For i = 1 To 4
+    For j = 1 To 4
+      risk = risk + result(i,1) * result(j,1) * covMatrix(i, j) * stdMatrix(1, i) * stdMatrix(1, j)
+    Next j
+  Next i
   Cells(2, 10).Value = risk
 End Sub
