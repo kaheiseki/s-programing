@@ -32,11 +32,12 @@ Sub Assignment1()
   exp_return = (result(1, 1) * 0.05) + (result(2, 1) * 0.06) + (result(3, 1) * 0.03) + (result(4, 1) * 0.04)
   Cells(1, 10).Value = exp_return 
 
-  ' リスクの出力
+  ' リスクの計算
   For i = 1 To 4
     For j = 1 To 4
       risk = risk + result(i,1) * result(j,1) * covMatrix(i, j) * stdMatrix(1, i) * stdMatrix(1, j)
     Next j
   Next i
+  ' リスクの出力
   Cells(2, 10).Value = risk
 End Sub
