@@ -37,7 +37,7 @@ End Function
 Function GetMatrix(row_start As Integer, row_end As Integer, column_start As Integer, column_end As Integer) As Variant
   Dim returnArray() As Variant
   ReDim returnArray(1 To row_end - row_start + 1, 1 To column_end - column_start + 1)
-  For i = row_start To row_end - row_start + 1
+  For i = row_start To row_end
     For j = column_start To column_end
       returnArray(i - row_start + 1, j - column_start + 1) = Cells(i, j).Value
     Next j
