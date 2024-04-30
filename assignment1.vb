@@ -25,12 +25,12 @@ Sub Assignment1()
   Next i
   ' 結果をシートに出力
   For i = 1 To 5
-    Cells(i, 8).Value = result(i, 1)
+    Cells(i, 9).Value = result(i, 1)
   Next i
 
   ' リターンの出力
   exp_return = (result(1, 1) * 0.05) + (result(2, 1) * 0.06) + (result(3, 1) * 0.03) + (result(4, 1) * 0.04)
-  Cells(1, 10).Value = exp_return 
+  Cells(1, 12).Value = exp_return 
 
   ' リスクの計算
   For i = 1 To 4
@@ -39,5 +39,5 @@ Sub Assignment1()
     Next j
   Next i
   ' リスクの出力
-  Cells(2, 10).Value = risk
+  Cells(2, 12).Value = risk
 End Sub
