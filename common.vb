@@ -86,9 +86,11 @@ Function Spline(time As Double) As Variant
   For i = 0 To 5
     delta(i) = x(i + 1) - x(i)
   Next i
+
   For i = 0 To 4
     b(i) = 6 * ((y(i + 2) - y(i + 1)) / delta(i + 1) - (y(i + 1) - y(i)) / delta(i))
   Next i
+
   For i = 0 To 4
     For j = 0 To 4
       If i = j Then
@@ -173,7 +175,7 @@ Function Box_Muller_Marsaglia() As Variant
   r1 = 2 * x1 - 1
   r2 = 2 * x2 - 1
   s = r1 * r1 + r2 * r2
-  While s >= 1
+  While s >= 1 Or s = 0
     x1 = Rnd()
     x2 = Rnd()
     r1 = 2 * x1 - 1
